@@ -2,7 +2,7 @@
   "id": "no-media-collapse",
   "name": "Bar: collapse media slot when nothing is playing",
   "description": "Shrinks the bar's media/resources group to its natural width when no track is playing, instead of holding the full centerSideModuleWidth slot. Disable to keep the slot at full width all the time.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "requiresLoader": "1.4",
   "author": "rom4ik",
   "link": "https://github.com/Rom4ik-12/no-media-collapse",
@@ -17,12 +17,12 @@
     {
       "file": "modules/ii/bar/BarContent.qml",
       "find": "            Media {\n                visible: root.useShortenedForm < 2\n                Layout.fillWidth: true",
-      "replace": "            Media {\n                id: mediaWidget\n                visible: root.useShortenedForm < 2 && MprisController.activePlayer?.trackTitle?.length > 0\n                Layout.fillWidth: true"
+      "replace": "            Media {\n                id: mediaWidget\n                visible: root.useShortenedForm < 2\n                Layout.fillWidth: true"
     },
     {
       "file": "modules/ii/bar/BarContent.qml",
       "find": "id: leftCenterGroup\n            anchors.verticalCenter: parent.verticalCenter\n            implicitWidth: root.centerSideModuleWidth",
-      "replace": "id: leftCenterGroup\n            anchors.verticalCenter: parent.verticalCenter\n            implicitWidth: (root.useShortenedForm === 2) ? root.centerSideModuleWidth :\n                           (MprisController.activePlayer?.trackTitle?.length > 0) ?\n                           root.centerSideModuleWidth : resourcesWidget.implicitWidth + (mediaWidget.visible ? mediaWidget.implicitWidth + 4 : 0)"
+      "replace": "id: leftCenterGroup\n            anchors.verticalCenter: parent.verticalCenter\n            implicitWidth: (root.useShortenedForm === 2) ? root.centerSideModuleWidth :\n                           (MprisController.activePlayer?.trackTitle?.length > 0) ?\n                           root.centerSideModuleWidth : resourcesWidget.implicitWidth + mediaWidget.implicitWidth + 4"
     }
   ]
 }
