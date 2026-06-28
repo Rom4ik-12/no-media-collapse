@@ -2,7 +2,7 @@
   "id": "no-media-collapse",
   "name": "Bar: collapse media slot when nothing is playing",
   "description": "Shrinks the bar's media/resources group to its natural width when no track is playing, instead of holding the full centerSideModuleWidth slot. Disable to keep the slot at full width all the time.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "requiresLoader": "1.4",
   "author": "rom4ik",
   "link": "https://github.com/Rom4ik-12/no-media-collapse",
@@ -12,7 +12,7 @@
     {
       "file": "modules/ii/bar/BarContent.qml",
       "find": "id: leftCenterGroup\n            anchors.verticalCenter: parent.verticalCenter\n            implicitWidth: root.centerSideModuleWidth",
-      "replace": "id: leftCenterGroup\n            anchors.verticalCenter: parent.verticalCenter\n            implicitWidth: (root.useShortenedForm === 2) ? root.centerSideModuleWidth :\n                           (MprisController.activePlayer?.trackTitle?.length > 0) ?\n                           root.centerSideModuleWidth : leftCenterGroup.items[0].implicitWidth + leftCenterGroup.items[1].implicitWidth + 4"
+      "replace": "id: leftCenterGroup\n            anchors.verticalCenter: parent.verticalCenter\n            implicitWidth: (root.useShortenedForm === 2) ? root.centerSideModuleWidth :\n                           (MprisController.activePlayer?.trackTitle?.length > 0) ?\n                           root.centerSideModuleWidth : leftCenterGroup.items[0].implicitWidth + leftCenterGroup.items[1].implicitWidth + 14"
     },
     {
       "file": "modules/ii/bar/Media.qml",
